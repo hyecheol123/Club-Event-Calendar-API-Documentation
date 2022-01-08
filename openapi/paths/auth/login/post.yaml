@@ -1,11 +1,11 @@
 tags:
-  - 인증
-summary: 로그인
+  - Auth
+summary: Login
 operationId: login
-description: | 
-  아이디와 비밀번호를 활용해 엑세스/리프래시 토큰을 받아냄
+description: |
+  Get access/refresh token using username and password
 
-  관리자 전용
+  Admin only
 requestBody:
   required: true
   content:
@@ -21,26 +21,26 @@ requestBody:
           - username
           - password
         example:
-          username: 'gildong123'
-          password: 'gildongpw1'
+          username: "gildong123"
+          password: "gildongpw1"
         additionalProperties: false
 responses:
-  '200':
-    description: 로그인 성공
+  "200":
+    description: Success
     headers:
       Set-Cookie:
-        description: "엑세스 토큰"
+        description: "Access Token"
         schema:
           type: string
           readOnly: true
           example: "X-ACCESS-TOKEN=abcdef1234; Domain=api.calendar.busandev.com; Path=/; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
       "\0Set-Cookie":
-        description: "리프래시 토큰"
+        description: "Refresh Token"
         schema:
           type: string
           readOnly: true
           example: "X-REFRESH-TOKEN=abcdef1234; Domain=api.calendar.busandev.com; Path=/auth; Secure; HttpOnly; SameSite=Strict; Expires=<Expire Date>"
-  '400':
-    description: 잘못된 요청 (Bad Request)
-  '401':
-    description: 인증 오류
+  "400":
+    description: Bad Request
+  "401":
+    description: Authentication Fail

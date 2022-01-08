@@ -1,24 +1,23 @@
 tags:
-  - 참가 신청
-summary: 이벤트 참가 신청 목록 보기
+  - Participation
+summary: View Participants
 operationId: listEventTicket
 description: |
-  이벤트 참가 신청 목록 확인: 특정 이벤트의 참여자, 연락처, 추가 의견을 모두 반환
+  List participants: Return all participation ticket and associated information
 
-  관리자 전용
+  Admin only
 security:
   - accessToken: []
 parameters:
   - name: eventID
     in: path
-    description: 기존 이벤트의 식별자
+    description: Unique ID for an existing event
     required: true
     schema:
-      type: number
-      minimum: 1
+      type: string
 responses:
   "200":
-    description: 응답 성공
+    description: Success
     content:
       application/json:
         schema:
@@ -52,27 +51,27 @@ responses:
             - numParticipants
           additionalProperties: false
         examples:
-          참여자 없음:
-            summary: 참여자 없음
+          No Participants:
+            summary: No Participants
             value:
               numParticipants: 0
-          참여자 있음:
-            summary: 참여자 있음
+          Have Participants:
+            summary: Have Participants
             value:
               numParticipants: 3
               participantsList:
                 - id: 1
-                  participantName: 홍길동
+                  participantName: Gildong Hong
                   phoneNumber: "01012345678"
                   email: gildong.hong@gmail.com
-                  comment: 참여 신청합니다!! 예상 도착시간은 10시 입니다.
+                  comment: Estimated Time Arrival is 10AM.
                 - id: 2
-                  participantName: 홍길순
+                  participantName: Gilsoon Hong
                   email: gilsoon123@gmail.com
                 - id: 3
-                  participantName: 김철수
+                  participantName: Charles Kim
                   email: charles@korea.kr
   "401":
-    description: 인증 오류
+    description: Authentication Fail
   "404":
-    description: 이벤트 식별자를 찾을수 없음
+    description: Cannot find event with given eventID

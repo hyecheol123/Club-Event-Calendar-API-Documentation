@@ -1,25 +1,24 @@
 tags:
-  - 이벤트
-summary: 이벤트 삭제
+  - Event
+summary: Delete Event
 operationId: deleteEvent
 description: |
-  기존 이벤트 삭제: 기존 이벤트를 지칭하는 eventID가 필요함
+  Delete an existing event: Need unique evnet ID
 
-  관리자 전용
+  admin only
 security:
   - accessToken: []
 parameters:
   - name: eventID
     in: path
-    description: 기존 이벤트의 식별자
+    description: Unique ID for an existing event
     required: true
     schema:
-      type: number
-      minimum: 1
+      type: string
 responses:
-  '200':
-    description: 이벤트 삭제 성공
-  '401':
-    description: 인증 오류
-  '404':
-    description: 이벤트 식별자를 찾을수 없음
+  "200":
+    description: Success
+  "401":
+    description: Authentication Fail
+  "404":
+    description: Cannot find event with given eventID

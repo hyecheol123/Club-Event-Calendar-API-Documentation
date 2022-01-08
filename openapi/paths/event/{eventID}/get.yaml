@@ -1,20 +1,19 @@
 tags:
-  - 이벤트
-summary: 이벤트 정보 보기
+  - Event
+summary: Get Event Information
 operationId: getEvent
 description: |
-  이벤트 정보 보기: 이벤트를 지칭하는 eventID가 필요함
+  Get Event ID: Need unique event ID
 parameters:
   - name: eventID
     in: path
-    description: 기존 이벤트의 식별자
+    description: Unique ID for an existing event
     required: true
     schema:
-      type: number
-      minimum: 1
+      type: string
 responses:
-  '200':
-    description: 응답 성공
+  "200":
+    description: Success
     content:
       application/json:
         schema:
@@ -47,8 +46,8 @@ responses:
             year: 2021
             month: 11
             date: 01
-            name: 조금 늦은 할로윈 파티
-            detail: 기존에 계획된 10월 31일 할로윈 파티를 하루 미루어서 진행합니다!!
-            category: 네트워킹
-  '404':
-    description: 이벤트 식별자를 찾을수 없음
+            name: Late Halloween party
+            detail: We postpone the Halloween party.
+            category: Networking
+  "404":
+    description: Cannot find event with given eventID

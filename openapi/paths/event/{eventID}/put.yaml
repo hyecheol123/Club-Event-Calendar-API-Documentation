@@ -1,21 +1,20 @@
 tags:
-  - 이벤트
-summary: 이벤트 수정
+  - Event
+summary: Edit Event
 operationId: editEvent
 description: |
-  기존 이벤트 수정: 기존 이벤트를 지칭하는 eventID가 필요함
+  Edit an existing event: Need eventId pointing an existing event
 
-  관리자 전용
+  Admin Only
 security:
   - accessToken: []
 parameters:
   - name: eventID
     in: path
-    description: 기존 이벤트의 식별자
+    description: Unique ID for an existing event
     required: true
     schema:
-      type: number
-      minimum: 1
+      type: string
 requestBody:
   required: true
   content:
@@ -44,14 +43,14 @@ requestBody:
         example:
           month: 11
           date: 1
-          name: 조금 늦은 할로윈 파티
-          detail: 기존에 계획된 10월 31일 할로윈 파티를 하루 미루어서 진행합니다!!
+          name: Late Halloween party
+          detail: We postpone the Halloween party.
 responses:
-  '200':
-    description: 이벤트 수정 성공
-  '400':
-    description: 잘못된 요청 (Bad Request)
-  '401':
-    description: 인증 오류
-  '404':
-    description: 이벤트 식별자를 찾을수 없음
+  "200":
+    description: Event Modificaiton Success
+  "400":
+    description: Bad Request
+  "401":
+    description: Authentication Fail
+  "404":
+    description: Cannot find event with given eventID
