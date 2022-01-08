@@ -1,0 +1,20 @@
+{
+  "name": "club-event-calendar-api-documentation",
+  "version": "1.0.0",
+  "description": "API Documentation for Club-Event-Calendar Project",
+  "author": "Hyecheol (Jerry) Jang <hyecheol123@gmail.com>",
+  "contributors": ["Coalery <doralife12@naver.com>", "Cpprhtn"],
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "dependencies": {
+    "@redocly/openapi-cli": "^1.0.0-beta.69",
+    "redoc-cli": "^0.13.1"
+  },
+  "private": true,
+  "scripts": {
+    "start": "openapi preview-docs",
+    "build-spec": "openapi bundle -o dist",
+    "build-html": "rm -rf docs/* && redoc-cli bundle openapi/openapi.yaml -o docs/index.html -t template/index.html && cp --verbose template/favicon.png docs/favicon.png",
+    "test": "openapi lint"
+  }
+}
