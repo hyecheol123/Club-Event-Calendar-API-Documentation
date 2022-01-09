@@ -3,7 +3,7 @@ tags:
 summary: Login
 operationId: login
 description: |
-  Get access/refresh token using username and password
+  Get access/refresh token using id and password
 
   Admin only
 requestBody:
@@ -13,15 +13,15 @@ requestBody:
       schema:
         type: object
         properties:
-          username:
+          id:
             type: string
           password:
             type: string
         required:
-          - username
+          - id
           - password
         example:
-          username: "gildong123"
+          id: "gildong123"
           password: "gildongpw1"
         additionalProperties: false
 responses:

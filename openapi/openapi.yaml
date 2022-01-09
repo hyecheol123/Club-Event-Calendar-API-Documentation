@@ -1,20 +1,20 @@
 openapi: 3.0.3
 info:
   version: 1.0.0
-  title: BGM Event Calendar
+  title: Club Event Calendar
   license:
     name: BSD-3-Clause
     url: https://opensource.org/licenses/BSD-3-Clause
-  termsOfService: "https://calendar.busandev.com/terms/"
   contact:
-    url: "https://github.com/BusanDevelopers"
+    url: "https://github.com/hyecheol123"
+    email: hyecheol123@gmail.com
   x-logo:
     url: "https://redocly.github.io/openapi-template/logo.png"
   description:
     $ref: description/main.md
 externalDocs:
   description: GitHub repository for this API Documentation.
-  url: "https://github.com/BusanDevelopers/BGM-Event-Calendar-API-Documentation"
+  url: "https://github.com/hyecheol123/Club-Event-Calendar-API-Documentation"
 tags:
   - name: Auth
     description: Authentication API
@@ -25,7 +25,7 @@ tags:
   - name: Participation
     description: API for participation ticket
 servers:
-  - url: "https://calendar.hcjang.com"
+  - url: "https://calendar.hcjang.com/api"
 paths:
   # Auth APIs
   /auth/login:
